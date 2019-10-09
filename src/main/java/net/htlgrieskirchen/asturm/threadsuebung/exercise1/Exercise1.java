@@ -33,27 +33,32 @@ public class Exercise1
             
             BufferedReader br = new BufferedReader(new FileReader(fileName));
            
-            try
-            {
+            
                 
-            while(br.readLine() != null)
-            {
-                
-                String s = br.readLine();
-                String[] parts = s.split(":");
-                
-                for(int i = 0; i<=parts.length; i++)
+                while(br.readLine() != null)
                 {
-                arrayListInteger.add(Integer.parseInt(parts[i]));
+
+                    String s = br.readLine();
+                    String[] parts = s.split(":");
+
+                    for(int i = 0; i<=parts.length; i++)
+                    {
+                        
+                        try
+                        {
+                            arrayListInteger.add(Integer.parseInt(parts[i]));
+                        }
+                        catch(Exception e)
+                        {
+                            System.out.println("Eintrag war keine Zahl oder ein Buchstabe war vorhanden");
+                        }
+                        
+                    }
+
+                    System.out.println(arrayListInteger);
                 }
-                    
-                System.out.println(arrayListInteger);
-            }
-            }
-            catch(Exception e)
-            {
-                System.out.println("War keine Zahl oder Buchstabe vorhanden");
-            }
+            
+            
         } 
         catch (FileNotFoundException ex) 
         {
