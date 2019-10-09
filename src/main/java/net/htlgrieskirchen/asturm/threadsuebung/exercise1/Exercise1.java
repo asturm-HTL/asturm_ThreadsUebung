@@ -64,10 +64,18 @@ public class Exercise1
                 
                     Scanner input = new Scanner(System.in);
                 
-                int test = input.nextInt();
+                int userInput = input.nextInt();
                 
-            
-            
+                for(int j = 0; j<=arrayListInteger.size(); j++)
+                {
+                    
+                    if(arrayListInteger.get(j) % userInput == 0)
+                    {
+                        System.out.println(arrayListInteger.get(j));
+                    }
+                    
+                }
+             
         } 
         catch (FileNotFoundException ex) 
         {
