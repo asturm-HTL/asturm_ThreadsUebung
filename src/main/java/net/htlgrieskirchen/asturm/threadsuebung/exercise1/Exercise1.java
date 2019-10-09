@@ -24,15 +24,7 @@ public class Exercise1
     
     static List<Integer> arrayListInteger = new ArrayList<>();
     static String fileName = "C:\\Users\\user\\Documents\\NetBeansProjects\\asturm_ThreadsUebung\\numbers.csv";
-    Thread thread = new Thread()
-    {
-        public void run()
-        {
-            
-        }
-    };
-    
-        
+       
     
     public static void main(String[] args) throws IOException 
     {
@@ -78,18 +70,8 @@ public class Exercise1
                 System.out.println("Geben Sie bitte ein in wieviele Teile die Ursprungsliste geteilt werden: ");
                 
                 int userInputListDivider = input.nextInt();
+                                
                 
-                System.out.println(userInputListDivider);
-                
-                /*for(int j = 0; j<=arrayListInteger.size(); j++)
-                {
-                    
-                    if(arrayListInteger.get(j) % userInput == 0)
-                    {
-                        System.out.println(arrayListInteger.get(j));
-                    }
-                    
-                }*/
              
         } 
         catch (FileNotFoundException ex) 
