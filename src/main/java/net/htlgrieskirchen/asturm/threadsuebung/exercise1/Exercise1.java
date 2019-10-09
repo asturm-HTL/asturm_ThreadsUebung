@@ -21,8 +21,9 @@ import java.util.logging.Logger;
 public class Exercise1 
 {
     
-    List<Integer> arrayList = new ArrayList<>();
+    static List<Integer> arrayListInteger = new ArrayList<>();
     static String fileName = "C:\\Users\\user\\Documents\\NetBeansProjects\\asturm_ThreadsUebung\\numbers.csv";
+    
     
     public static void main(String[] args) throws IOException 
     {
@@ -31,24 +32,28 @@ public class Exercise1
         {
             
             BufferedReader br = new BufferedReader(new FileReader(fileName));
-            
+           
+            try
+            {
+                
             while(br.readLine() != null)
             {
                 
-                try
-                {
-                    
-                    
-                    
-                }
-                catch(Exception exc)
-                {
-                    
-                }
+                String s = br.readLine();
+                String[] parts = s.split(":");
                 
-                        
+                for(int i = 0; i<=parts.length; i++)
+                {
+                arrayListInteger.add(Integer.parseInt(parts[i]));
+                }
+                    
+                System.out.println(arrayListInteger);
             }
-        
+            }
+            catch(Exception e)
+            {
+                System.out.println("War keine Zahl oder Buchstabe vorhanden");
+            }
         } 
         catch (FileNotFoundException ex) 
         {
