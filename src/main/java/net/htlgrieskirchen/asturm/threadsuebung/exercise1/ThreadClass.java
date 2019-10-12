@@ -31,7 +31,7 @@ public class ThreadClass implements Runnable
     @Override
     public void run() 
     {
-        for(int j = 0; j<=arrayListInteger.size(); j++)
+        for(int j = from; j<=to ; j++)
                 {
                     
                     if(arrayListInteger.get(j) % userInput == 0)

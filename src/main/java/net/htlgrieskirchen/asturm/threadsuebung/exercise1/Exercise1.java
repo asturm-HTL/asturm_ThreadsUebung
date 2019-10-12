@@ -71,6 +71,20 @@ public class Exercise1
                 
                 int userInputListDivider = input.nextInt();
                                 
+                int from = 0;
+                int to = 0;
+                
+                for(int i = 0; i<=userInputListDivider; i++)
+                {
+                    Thread thread = new Thread(new ThreadClass(arrayListInteger, userInputDivider, from, to));
+                    thread.start();
+                    from = from + arrayListInteger.size() /userInputListDivider;                        
+                    to = from + arrayListInteger.size() / userInputDivider;
+                    
+                }
+                
+                
+                
                 
              
         } 
