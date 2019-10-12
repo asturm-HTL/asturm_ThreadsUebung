@@ -16,7 +16,7 @@ public class ThreadClass2 implements Runnable
     int from;
     int to;
     
-    public ThreadClass2(int n, int from, int to)
+    public ThreadClass2(int n)
     {
         this.n = n;
         this.from = from;

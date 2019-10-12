@@ -19,10 +19,10 @@ public class Exercise2
     
     public static void main(String[] args) 
     {
-        int from = 1;
+        
         int n;
         int distance = 100;
-        int to = from + distance;
+       
         
    
         Scanner input = new Scanner(System.in);
@@ -42,24 +42,29 @@ public class Exercise2
         ArrayList arrayList = new ArrayList();
         
         int sum1 = 0;
-        int j = 1;
+        int j = 0;
+        int i = 0;
         
-        for(int i = 1; i<=n; i++)
+        while(i<=n)
         {
-            Thread thread = new Thread(new ThreadClass2(n, from, to));
+            Thread thread = new Thread(new ThreadClass2(n));
             thread.start();
             
-            while(j<=distance)
+            while(j<distance)
             {
-                
+                if(j<n){
+                j++;
                 arrayList.add(j); 
                 System.out.println(thread);
                 System.out.println(arrayList.get(j-1));
                 sum1 = sum1 + (Integer) arrayList.get(j-1);
                 System.out.println("Summe1: "+sum1);
-                j++;
+                }
             }
-            
+            if(distance <= n)
+            {
+                distance = j+100;
+            }
         }
         
         
