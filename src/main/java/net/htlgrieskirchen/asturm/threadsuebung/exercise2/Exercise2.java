@@ -5,6 +5,7 @@
  */
 package net.htlgrieskirchen.asturm.threadsuebung.exercise2;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -18,11 +19,12 @@ public class Exercise2
     
     public static void main(String[] args) 
     {
-        int from = 0;
-        int to= 0;
+        int from = 1;
         int n;
-        int chunks = 100;
+        int distance = 100;
+        int to = from + distance;
         
+   
         Scanner input = new Scanner(System.in);
         
         System.out.println("Geben Sie bitte die Zahl 'n' ein");
@@ -37,15 +39,30 @@ public class Exercise2
             n = input.nextInt();
         }
         
-        for(int i = 0; i<=chunks; i++)
-                {
-                    Thread thread = new Thread(new ThreadClass2(n, chunks, from, to));
-                    thread.start();
-                    from = from + (n/chunks);
-                    to = from + (n/chunks);
-                    System.out.println("from : "+from+" to: "+to);
-                    
-                }
+        ArrayList arrayList = new ArrayList();
+        
+        int sum1 = 0;
+        int j = 1;
+        
+        for(int i = 1; i<=n; i++)
+        {
+            Thread thread = new Thread(new ThreadClass2(n, from, to));
+            thread.start();
+            
+            while(j<=distance)
+            {
+                
+                arrayList.add(j); 
+                System.out.println(thread);
+                System.out.println(arrayList.get(j-1));
+                sum1 = sum1 + (Integer) arrayList.get(j-1);
+                System.out.println("Summe1: "+sum1);
+                j++;
+            }
+            
+        }
+        
+        
         
         
         
