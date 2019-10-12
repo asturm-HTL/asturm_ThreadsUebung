@@ -81,6 +81,7 @@ public class Exercise1
                     from = from + arrayListInteger.size() /userInputListDivider;                        
                     to = from + arrayListInteger.size() / userInputDivider;
                     
+                    
                 }
                 
                 

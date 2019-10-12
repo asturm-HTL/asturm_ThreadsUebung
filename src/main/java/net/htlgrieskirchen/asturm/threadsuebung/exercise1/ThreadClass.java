@@ -26,11 +26,14 @@ public class ThreadClass implements Runnable
         this.userInput = userInput;
         this.from = from;
         this.to = to;
+        
+        
     }
     
     @Override
     public void run() 
     {
+       
         for(int j = from; j<=to ; j++)
                 {
                     
