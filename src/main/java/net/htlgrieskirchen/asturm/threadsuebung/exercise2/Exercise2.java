@@ -22,6 +22,7 @@ public class Exercise2
         
         int n;
         int distance = 100;
+        int distanceForSum = 100;
        
         
    
@@ -44,6 +45,7 @@ public class Exercise2
         int sum1 = 0;
         int j = 0;
         int i = 0;
+        int sum = 0;
         
         while(i<=n)
         {
@@ -57,14 +59,29 @@ public class Exercise2
                 arrayList.add(j); 
                 System.out.println(thread);
                 System.out.println(arrayList.get(j-1));
-                sum1 = sum1 + (Integer) arrayList.get(j-1);
-                System.out.println("Summe1: "+sum1);
+                    
+                if(j-1<distanceForSum)
+                {
+                    sum1 = sum1 + (Integer) arrayList.get(j-1);
+                    System.out.println("Summe1: "+sum1);
+                }
+                else
+                {
+                    sum = sum + sum1;
+                    distanceForSum = distanceForSum +100;
+                    sum1 = j;
+                }
+                
+                
+                System.out.println("Summe gesamt ist: " +sum);
+                
                 }
             }
             if(distance <= n)
             {
                 distance = j+100;
             }
+            i++;
         }
         
         
