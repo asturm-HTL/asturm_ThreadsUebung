@@ -49,38 +49,10 @@ public class Exercise2
         
         while(i<=n)
         {
-            Thread thread = new Thread(new ThreadClass2(n));
+            Thread thread = new Thread(new ThreadClass2(j, arrayList));
             thread.start();
             
-            while(j<distance)
-            {
-                if(j<n){
-                j++;
-                arrayList.add(j); 
-                System.out.println(thread);
-                System.out.println(arrayList.get(j-1));
-                    
-                if(j-1<distanceForSum)
-                {
-                    sum1 = sum1 + (Integer) arrayList.get(j-1);
-                    System.out.println("Summe1: "+sum1);
-                }
-                else
-                {
-                    sum = sum + sum1;
-                    distanceForSum = distanceForSum +100;
-                    sum1 = j;
-                }
-                
-                
-                System.out.println("Summe gesamt ist: " +sum);
-                
-                }
-            }
-            if(distance <= n)
-            {
-                distance = j+100;
-            }
+
             i++;
         }
         
