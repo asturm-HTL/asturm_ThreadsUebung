@@ -13,32 +13,64 @@ import java.util.ArrayList;
  */
 public class ThreadClass2 implements Runnable
 {
-    int j = 0;
-    int n;
-    int distance = 100;
-    int distanceForSum = 100;
-    ArrayList arrayList;
-    int sum1 = 0;
-    int sum = 0;
     
-    public ThreadClass2(int n, ArrayList arrayList)
+    int n;
+    ArrayList arrayList;
+    int sum;
+    int singleSum;
+    int distance;
+    
+    public ThreadClass2(int n)
     {
-        //this.j = j;
+        /*this.arrayList = arrayList;
+        this.distance = distance;*/
         this.n = n;
-        //this.distance =distance;
-        //this.distanceForSum = distanceForSum;
-        this.arrayList = arrayList;
-        //this.sum1 = sum1;
-        //this.sum = sum;
+        /*this.singleSum = singleSum;
+        this.sum = sum;*/
         
     }
     
     @Override
     public void run() 
-    {
-         
+    { 
         
-            while(j<distance)
+      
+           
+        //System.out.println("ArrayList: "+arrayList);
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        /*while(j<distance)
             {
                 if(j<n)
                 {
@@ -77,7 +109,7 @@ public class ThreadClass2 implements Runnable
             {
                 distance = j+100;
             }
-        
+        */
     }
     
     
