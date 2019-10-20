@@ -70,7 +70,8 @@ public class Exercise1
                 System.out.println("Geben Sie bitte ein in wieviele Teile die Ursprungsliste geteilt werden: ");
                 
                 int userInputListDivider = input.nextInt();
-                                
+                System.out.println("----------------------------------------------------");
+
                 int from = 0;
                 int to = 0;
                 
