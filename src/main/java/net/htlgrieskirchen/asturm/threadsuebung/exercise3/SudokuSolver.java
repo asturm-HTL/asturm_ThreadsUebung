@@ -15,6 +15,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 /**
@@ -34,6 +35,7 @@ public class SudokuSolver implements ISodukoSolver
         SudokuSolver ss = new SudokuSolver();
         
         ss.readSudoku(sudokuLevel1);
+        System.out.println("check:");
         ss.checkSudoku(sudokuField);
     }
     
@@ -87,16 +89,9 @@ public class SudokuSolver implements ISodukoSolver
     @Override
     public boolean checkSudoku(int[][] rawSudoku) 
     {
-        List intergerList = new LinkedList<Integer>();
-        
-        for(int row = 0; row<sudokuField.length; row++)
-        {
-            for(int column = 0; column < sudokuField[row].length; column++)
-            {
-                System.out.println("nigga: "+sudokuField[row][column]);
-            }
-        }
-        return true;
+        int row = 9;
+        int column = 9;
+        return (rowChecker(sudokuField, row) && columnChecker(sudokuField, column) && fieldChecker(sudokuField, row, column));
     }
 
     @Override
@@ -110,5 +105,55 @@ public class SudokuSolver implements ISodukoSolver
     {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+    //------------------------------check-Methoden--------------------------------------
+    public boolean rowChecker(int[][] field, int row)
+    {
+        boolean[] check = new boolean[sudokuField.length];
+        return IntStream.range(0, sudokuField.length).allMatch(column -> checkMethod(sudokuField, row, check, column));
+    }
+    
+    public boolean columnChecker(int[][] field, int column)
+    {
+        boolean[] check = new boolean[sudokuField.length];
+        return IntStream.range(0, sudokuField.length).allMatch(row -> checkMethod(sudokuField, row, check, column));
+    }
+    
+    public boolean fieldChecker(int[][] field, int row, int column)
+    {
+        boolean[] check = new boolean[sudokuField.length];
+        int fieldRowStart = (row / 3) *3;
+        int fieldRowEnd = fieldRowStart + 3;
+        
+        int fieldColumnStart = (column / 3) * 3;
+        int fieldColumnEnd = fieldColumnStart + 3;
+        
+        for (int r = fieldRowStart; r < fieldRowEnd; r++) 
+        {
+        for (int c = fieldColumnStart; c < fieldColumnEnd; c++) 
+        {
+            if (!checkMethod(sudokuField, r, check, c)) return false;
+        }
+    }
+    return true;
+    }
+    
+    public boolean checkMethod(int[][]field, int row, boolean[] check, int column)
+    {
+        if(sudokuField[row][column] != 0)
+        {
+            if(!check[sudokuField[row][column] -1])
+            {
+                check[sudokuField[row][column] -1] = true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        return  true;
+    }
+    
+    
     
 }
